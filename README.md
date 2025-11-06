@@ -1,11 +1,5 @@
 # Waft ssh docker container
 
-This is a Dockerfile and script to start a docker container that can be ssh'ed into, to use waft.
+This is a Dockerfile and script to start a docker container that can be ssh'ed into, to be able to use Waft on an unsupported system.
+Currently Waft seems to be made for Ubuntu 22.04, but may work in other debian-based distros as well, if the packages are old enough.
 
-I need this solution to work with Waft builds, because Waft uses full path names, and a Nix FHS
-environment messes with Git such that git-aggregator doesn't work, which Waft uses. So
-unfortunately more minimal solution doesn't seem to be possible.
-
-## TODO
-
-Create a nix flake to manage docker.
