@@ -13,8 +13,6 @@ RUN apt-get install -y --no-install-recommends \
 	libxslt1-dev libpq-dev libsasl2-dev libopenjp2-7-dev libjpeg-turbo8-dev \
 	libtiff5-dev libfreetype6-dev liblcms2-dev libwebp-dev openssh-server nano pre-commit \
 	python3-dev ssh sudo wget
-
-RUN apt-get install -y --no-install-recommends \
 RUN pip install "python-lsp-server[all]"
 RUN curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
 RUN useradd -d /home/waft -s /bin/bash waft
@@ -25,8 +23,8 @@ RUN echo "service ssh start" >> /root/.bashrc
 RUN echo "nix-daemon &" >> /root/.bashrc
 
 
-ADD etc/gitconfig /etc/gitconfig
-ADD etc/nvim /etc/xdg/nvim
+ADD --chmod=644 etc/gitconfig /etc/gitconfig
+ADD --chmod=644 etc/nvim /etc/xdg/nvim
 
 
 USER waft
